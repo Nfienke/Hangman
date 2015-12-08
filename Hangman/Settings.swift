@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class Settings: UIViewController{
-    
+    //
   
     //let myDefaults = NSUserDefaults.standardUserDefaults()
     var typeplay = Gameplay()
