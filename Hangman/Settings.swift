@@ -32,7 +32,7 @@ class Settings: UIViewController{
     
     //Switcher to chose between the gameplay
     @IBAction func evilgame(sender: UISwitch){
-        
+        //
 //        if sender.on{
 //            labelGameType.text! = SettingsManager.gametype()
 //            
