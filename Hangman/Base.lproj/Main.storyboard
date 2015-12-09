@@ -80,9 +80,9 @@
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Q4-t2-aDj">
-                                                <rect key="frame" x="0.0" y="171" width="223" height="36"/>
-                                            </pickerView>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="4Pz-3G-esV">
+                                                <rect key="frame" x="6" y="177" width="118" height="31"/>
+                                            </slider>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -107,6 +107,7 @@
                     </view>
                     <connections>
                         <outlet property="labelGameType" destination="cYk-ru-uEs" id="PqA-Vo-CgA"/>
+                        <outlet property="labelUsername" destination="Vx8-cd-OXk" id="SoP-hO-jcl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LYY-wB-Tgi" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -523,6 +524,6 @@
         <image name="settings" width="2000" height="2000"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="mSf-a1-wW5"/>
+        <segue reference="chP-g2-qbt"/>
     </inferredMetricsTieBreakers>
 </document>

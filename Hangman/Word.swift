@@ -21,15 +21,14 @@ public class Words {
     }
     
     private func loadText(filename: String) -> Array<String>? {
-        
         do{
             let filePath = NSBundle.mainBundle().pathForResource(filename, ofType: "plist")
             return NSArray(contentsOfFile: filePath!) as! [String]
         }
+            
         catch{
             return nil
         }
     }
     
-    // through an dict the words are sorted on length
    }

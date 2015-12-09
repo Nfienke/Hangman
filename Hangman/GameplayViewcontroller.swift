@@ -11,7 +11,8 @@ import UIKit
 
 class GameplayViewcontroller: UIViewController {
     
-    var currentGame = Gameplay() //from settings
+    var currentGame = Goodplay() //from settings
+    
     
     @IBOutlet weak var tekstField: UITextField!
     @IBOutlet weak var labelHangWord: UILabel!
@@ -59,6 +60,7 @@ class GameplayViewcontroller: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print (Settings.sharedInstance.typeplay)
         
         currentGame.lengthOfWord()
         currentGame.randomWord()
