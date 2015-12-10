@@ -11,59 +11,43 @@ import UIKit
 
 class Settings: UIViewController{
     
-    var User = ""
-    
-    class var sharedInstance: Settings {
-        struct Static {
-            static let instance: Settings = Settings()
-        }
-        return Static.instance
-    }
-    
-    
+
     @IBOutlet weak var labelUsername: UITextField!
-    
-   
-    
-    //let myDefaults = NSUserDefaults.standardUserDefaults()
-    var typeplay =  NSUserDefaults.standardUserDefaults().objectForKey("typeplay")!
-    
     @IBOutlet weak var labelGameType: UILabel!
+    @IBOutlet weak var labelNumletters: UILabel!
     
+    @IBAction func sliderNumLetters(sender: AnyObject) {
+    }
     //Switcher to chose between the gameplay
     @IBAction func evilgame(sender: UISwitch){
-        //
-//        if sender.on{
-//            labelGameType.text! = SettingsManager.gametype()
-//            
-//        }
-//        else{
-//            labelGameType.text! = "Good Hangman"
-//            SettingsManager.Gametype()
-//        }
-        
-        //SettingsManager.Gametype()
-//        NSUserDefaults.standardUserDefaults().setObject(typeplay, forKey: "typeplay")
-//        NSUserDefaults.standardUserDefaults().synchronize()
+        if sender.on{
+            labelGameType.text! = "Evil Hangman"
+            typeplay = true
+        }
+            
+        else{
+            labelGameType.text! = "Good Hangman"
+            typeplay = false
+        }
+        NSUserDefaults.standardUserDefaults().setObject(typeplay, forKey: "typeplay")
+        //NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     @IBAction func mainmenu(sender: AnyObject) {
-        //NSUserDefaults.standardUserDefaults().synchronize()
-
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        labelGameType.text = SettingsManager.gametype()
+        
+        //username
         
 
-       // User = labelUsername.text!
-        
-//        if NSUserDefaults.standardUserDefaults().objectForKey("typeplay") != nil{
-//            typeplay = NSUserDefaults.standardUserDefaults().objectForKey("typeplay")!
+      //        if NSUserDefaults.standardUserDefaults().objectForKey("currentGame") != nil{
+//            currentGame = NSUserDefaults.standardUserDefaults().objectForKey("currentGame")!
 //        }
 //        else{
-//            typeplay = "Evilplay()"
+//            currentGame = Evilplay()
 //        }
         
     }

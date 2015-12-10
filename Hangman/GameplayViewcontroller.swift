@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 
+    var typeplay = Bool()
+    var currentGame = Gameplay() //from settings
+
 class GameplayViewcontroller: UIViewController {
     
-    var currentGame = Goodplay() //from settings
     
     
     @IBOutlet weak var tekstField: UITextField!
@@ -60,7 +62,14 @@ class GameplayViewcontroller: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print (Settings.sharedInstance.typeplay)
+        if typeplay == true{
+            currentGame = Evilplay()
+        }
+        else{
+            currentGame = Goodplay()
+        }
+
+        print(currentGame)
         
         currentGame.lengthOfWord()
         currentGame.randomWord()
