@@ -11,22 +11,16 @@ import UIKit
 
 class Settings: UIViewController{
     
-
     @IBOutlet weak var labelUsername: UITextField!
     @IBOutlet weak var labelGameType: UILabel!
     @IBOutlet weak var labelNumletters: UILabel!
     @IBOutlet weak var sliderValueLetters: UISlider!
     
-    
-   
-    
     @IBAction func sliderNumLetters(sender: UISlider) {
-        
-        
         let sliderValueLetters = Int(sender.value)
         labelNumletters.text = "Number of letters:" + String(stringInterpolationSegment: sliderValueLetters)
         lengthWord = sliderValueLetters
-        //print(lengthWord)
+         NSUserDefaults.standardUserDefaults().setObject(lengthWord, forKey: "lengthWord")
     }
     //Switcher to chose between the gameplay
     @IBAction func evilgame(sender: UISwitch){
@@ -45,7 +39,7 @@ class Settings: UIViewController{
     
     @IBAction func mainmenu(sender: AnyObject) {
         User = labelUsername.text!
-        NSUserDefaults.standardUserDefaults().setObject(typeplay, forKey: "User")
+        NSUserDefaults.standardUserDefaults().setObject(User, forKey: "User")
         NSUserDefaults.standardUserDefaults().synchronize()
     }
     
@@ -53,16 +47,22 @@ class Settings: UIViewController{
         super.viewDidLoad()
          sliderValueLetters.maximumValue = 13 //max length word
         
-       
-        
-
-      //        if NSUserDefaults.standardUserDefaults().objectForKey("currentGame") != nil{
-//            currentGame = NSUserDefaults.standardUserDefaults().objectForKey("currentGame")!
+//        if NSUserDefaults.standardUserDefaults().objectForKey("User") != nil{
+//            User =  NSUserDefaults.standardUserDefaults().objectForKey("User")! as! String
 //        }
 //        else{
-//            currentGame = Evilplay()
+//            User = "Unknown"
+//        
 //        }
         
+//
+//          if NSUserDefaults.standardUserDefaults().objectForKey("currentGame") != nil{
+//        currentGame = NSUserDefaults.standardUserDefaults().objectForKey("currentGame")!
+//    }
+//    else{
+//        currentGame = Evilplay()
+//    }
+    
     }
     
 }

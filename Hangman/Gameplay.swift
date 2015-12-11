@@ -8,11 +8,12 @@
 
 import Foundation
     var lengthWord : Int = 4 //from settings
-    var username = String()
+    var username = String()//?
+    var User = String()//from settings
 
 
 public class Gameplay {
-    
+    var highList = [String]()
     var highScoreList = [Int]()
    // var highScoreDict = Dictionary <String, Int> ()
     var win = false
@@ -45,7 +46,9 @@ public class Gameplay {
     func randomWord() {
         randIndex = Int(arc4random_uniform(UInt32(wordLengthList.count)))
         hangWord = wordLengthList[randIndex]
-        print(hangWord)//comment out
+        print(hangWord) //comment out
+        NSUserDefaults.standardUserDefaults().setObject(hangWord, forKey: "hangword")
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
     
     func evilWordChooser(tekstField: String) {
@@ -87,20 +90,39 @@ public class Gameplay {
     }
     
     func highscore() {
-        highScoreList = [0,0,0,0,0,0,0,0,0,0]
-        //let punt = 0
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey("highScore") != nil{
+            highList = NSUserDefaults.standardUserDefaults().objectForKey("highScore") as! [String]
+        }
+        else{
+            highList = ["\(0) Unknown","\(0) Unknown","\(0) Unknown","\(0) Unknown","\(0) Unknown",]
+        }
+        
+        if NSUserDefaults.standardUserDefaults().objectForKey("highScoreList") != nil{
+            highScoreList = NSUserDefaults.standardUserDefaults().objectForKey("highScoreList") as! [Int]
+        }
+        else{
+            highScoreList = [0,0,0,0,0]
+        }
+
         for i in highScoreList.sort() {
             self.highScoreList = highScoreList.sort()
             let index = highScoreList.startIndex.advancedBy(i)
             if point > i {
                 highScoreList.removeAtIndex(index)
                 highScoreList.insert(point, atIndex: index)
+                highList.removeAtIndex(index)
+                highList.insert("\(point)\(User)", atIndex: index)
                 break
             }
             else{
                 break
             }
         }
+        print(highScoreList)
+        print(highList)
+        NSUserDefaults.standardUserDefaults().setObject(highScoreList, forKey: "highScoreList")
+        NSUserDefaults.standardUserDefaults().setObject(highList, forKey: "highScore")
+        NSUserDefaults.standardUserDefaults().synchronize()
     }
-    
-    }
+}

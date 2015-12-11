@@ -88,6 +88,13 @@ public class Evilplay: Gameplay {
     }
     
     override func checkGuess(tekstField: String) -> Bool {
+        
+        if tekstField == ""{
+            print("foutje: er is geen letter ingevoerd")
+            return false
+            
+        }
+        
         guess = tekstField.characters.first!
         
         if newWord.containsString(String(guess)){

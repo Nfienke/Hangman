@@ -14,8 +14,6 @@ import UIKit
 
 class GameplayViewcontroller: UIViewController {
     
-    
-    
     @IBOutlet weak var tekstField: UITextField!
     @IBOutlet weak var labelHangWord: UILabel!
     @IBOutlet weak var labelWrongGuesses: UILabel!
@@ -26,9 +24,11 @@ class GameplayViewcontroller: UIViewController {
     
     //sends guess of the user.
     @IBAction func guessButton(sender: AnyObject) {
-        currentGame.evilWordChooser(tekstField.text!)
         
         NSUserDefaults.standardUserDefaults().setInteger(currentGame.point, forKey: "points")
+        
+        currentGame.evilWordChooser(tekstField.text!)//?
+
         
         if (currentGame.checkGuess(tekstField.text!)) {
             labelHangWord.text! = currentGame.showWord(tekstField.text![tekstField.text!.startIndex], tekstField: labelHangWord.text!)
@@ -56,7 +56,7 @@ class GameplayViewcontroller: UIViewController {
     }
 
         
-    // sends info when user loses and resets the stores values.
+    // sends info when user loses or wins and resets the stored values.
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueEndGame" {
             if let destinationVC = segue.destinationViewController as? GameEndViewController{
@@ -65,13 +65,15 @@ class GameplayViewcontroller: UIViewController {
                     NSUserDefaults.standardUserDefaults().removeObjectForKey("guesses")
                     NSUserDefaults.standardUserDefaults().removeObjectForKey("showWord")
                     NSUserDefaults.standardUserDefaults().removeObjectForKey("points")
+                    NSUserDefaults.standardUserDefaults().removeObjectForKey("hangword")
                 }
                 else{
-                    destinationVC.outcome = "You win"
                     currentGame.highscore()
+                    destinationVC.outcome = "You win"
                     NSUserDefaults.standardUserDefaults().removeObjectForKey("guesses")
                     NSUserDefaults.standardUserDefaults().removeObjectForKey("showWord")
                     NSUserDefaults.standardUserDefaults().removeObjectForKey("points")
+                    NSUserDefaults.standardUserDefaults().removeObjectForKey("hangword")
                 }
             }
         }
@@ -89,10 +91,16 @@ class GameplayViewcontroller: UIViewController {
         }
 
         print(currentGame)// mag eruit
-        
-        currentGame.lengthOfWord()
-        currentGame.randomWord()
-        
+
+        //Hangword
+        if NSUserDefaults.standardUserDefaults().objectForKey("hangword") != nil{
+            currentGame.hangWord = "\(NSUserDefaults.standardUserDefaults().objectForKey("hangword")!)"
+        }
+        else{
+            currentGame.lengthOfWord()
+            currentGame.randomWord()
+        }
+
         var hiddenWord: String = ""
         for _ in currentGame.hangWord.characters {
             hiddenWord += "_"
@@ -105,6 +113,7 @@ class GameplayViewcontroller: UIViewController {
         else{
             labelHangWord.text! = hiddenWord
         }
+        
         // shows the guesses of the user.
         if NSUserDefaults.standardUserDefaults().objectForKey("guesses") != nil{
             labelWrongGuesses.text! = "\(NSUserDefaults.standardUserDefaults().objectForKey("guesses")!)"
@@ -120,6 +129,7 @@ class GameplayViewcontroller: UIViewController {
         else{
             labelPoints.text = "\(currentGame.points())"
         }
+        
         // shows the guesses that are left
         labelGuessesLeft.text! = "\(currentGame.timesguesses) guesses left" // die ook ns user defaults
     }
