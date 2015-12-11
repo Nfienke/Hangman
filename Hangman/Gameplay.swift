@@ -105,8 +105,10 @@ public class Gameplay {
             highScoreList = [0,0,0,0,0]
         }
 
-        for i in highScoreList.sort() {
+        for i in highList.sort() {
             self.highScoreList = highScoreList.sort()
+            self.highList = highList.sort()
+            //print(highList)
             let index = highScoreList.startIndex.advancedBy(i)
             if point > i {
                 highScoreList.removeAtIndex(index)
