@@ -19,6 +19,7 @@
 		328C4BE51BFD0C4B00715660 /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C4BE41BFD0C4B00715660 /* Word.swift */; };
 		328C4BEB1BFD112C00715660 /* GameplayViewcontroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328C4BEA1BFD112C00715660 /* GameplayViewcontroller.swift */; };
 		328CD7631C1764390039316F /* GameEndViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 328CD7621C1764390039316F /* GameEndViewController.swift */; };
+		3292F2701C1AD02F006EBCE9 /* Highscore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3292F26F1C1AD02F006EBCE9 /* Highscore.swift */; };
 		32BF27981C0B91CD0097BC05 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32BF27971C0B91CD0097BC05 /* Settings.swift */; };
 		32CA24551C06749E00F1864A /* words.plist in Resources */ = {isa = PBXBuildFile; fileRef = 32CA24541C06749E00F1864A /* words.plist */; };
 		32F4ED0B1C03355C006D1512 /* Goodplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32F4ED0A1C03355C006D1512 /* Goodplay.swift */; };
@@ -60,6 +61,7 @@
 		328C4BE41BFD0C4B00715660 /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
 		328C4BEA1BFD112C00715660 /* GameplayViewcontroller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameplayViewcontroller.swift; sourceTree = "<group>"; };
 		328CD7621C1764390039316F /* GameEndViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameEndViewController.swift; sourceTree = "<group>"; };
+		3292F26F1C1AD02F006EBCE9 /* Highscore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Highscore.swift; sourceTree = "<group>"; };
 		32BF27971C0B91CD0097BC05 /* Settings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		32CA24541C06749E00F1864A /* words.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = words.plist; sourceTree = SOURCE_ROOT; };
 		32F4ED0A1C03355C006D1512 /* Goodplay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goodplay.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				324A481E1BF9311A00E4EA07 /* ViewController.swift */,
 				328C4BEA1BFD112C00715660 /* GameplayViewcontroller.swift */,
 				32BF27971C0B91CD0097BC05 /* Settings.swift */,
+				3292F26F1C1AD02F006EBCE9 /* Highscore.swift */,
 				328CD7621C1764390039316F /* GameEndViewController.swift */,
 			);
 			name = "Views and controllers";
@@ -311,6 +314,7 @@
 				325FCC041C0C62AE000D4381 /* Gameplay.swift in Sources */,
 				324A481D1BF9311A00E4EA07 /* AppDelegate.swift in Sources */,
 				328C4BEB1BFD112C00715660 /* GameplayViewcontroller.swift in Sources */,
+				3292F2701C1AD02F006EBCE9 /* Highscore.swift in Sources */,
 				32F4ED0D1C033571006D1512 /* Evilplay.swift in Sources */,
 				32BF27981C0B91CD0097BC05 /* Settings.swift in Sources */,
 				328CD7631C1764390039316F /* GameEndViewController.swift in Sources */,

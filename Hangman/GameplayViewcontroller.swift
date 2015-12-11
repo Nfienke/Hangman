@@ -22,6 +22,8 @@ class GameplayViewcontroller: UIViewController {
     @IBOutlet weak var labelPoints: UILabel!
     @IBOutlet weak var labelGuessesLeft: UILabel!
     
+    var gameOutcome = String()
+    
     //sends guess of the user.
     @IBAction func guessButton(sender: AnyObject) {
         currentGame.evilWordChooser(tekstField.text!)
@@ -41,6 +43,12 @@ class GameplayViewcontroller: UIViewController {
         
         // if there are no guesses left, and the player loses.
         if currentGame.timesguesses == 0{
+            gameOutcome = "lose"
+            performSegueWithIdentifier("segueEndGame", sender: self)
+        }
+        
+        if currentGame.win == true{
+            //gameOutcome = "win"
             performSegueWithIdentifier("segueEndGame", sender: self)
         }
         
@@ -52,16 +60,27 @@ class GameplayViewcontroller: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "segueEndGame" {
             if let destinationVC = segue.destinationViewController as? GameEndViewController{
-                destinationVC.outcome = "lose"
-                NSUserDefaults.standardUserDefaults().removeObjectForKey("guesses")
-                NSUserDefaults.standardUserDefaults().removeObjectForKey("showWord")
-                NSUserDefaults.standardUserDefaults().removeObjectForKey("points")
+                if gameOutcome == "lose"{
+                    destinationVC.outcome = "You lose"
+                    NSUserDefaults.standardUserDefaults().removeObjectForKey("guesses")
+                    NSUserDefaults.standardUserDefaults().removeObjectForKey("showWord")
+                    NSUserDefaults.standardUserDefaults().removeObjectForKey("points")
+                }
+                else{
+                    destinationVC.outcome = "You win"
+                    currentGame.highscore()
+                    NSUserDefaults.standardUserDefaults().removeObjectForKey("guesses")
+                    NSUserDefaults.standardUserDefaults().removeObjectForKey("showWord")
+                    NSUserDefaults.standardUserDefaults().removeObjectForKey("points")
+                }
             }
         }
 }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //choses evil or good.
         if typeplay == true{
             currentGame = Evilplay()
         }
@@ -69,7 +88,7 @@ class GameplayViewcontroller: UIViewController {
             currentGame = Goodplay()
         }
 
-        print(currentGame)
+        print(currentGame)// mag eruit
         
         currentGame.lengthOfWord()
         currentGame.randomWord()

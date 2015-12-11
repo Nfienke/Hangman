@@ -7,16 +7,22 @@
 //
 
 import Foundation
+    var lengthWord : Int = 4 //from settings
+    var username = String()
+
 
 public class Gameplay {
     
+    var highScoreList = [Int]()
+   // var highScoreDict = Dictionary <String, Int> ()
+    var win = false
     var hangWord = ""
     var randIndex : Int = 0
     var guess:Character = " "
     var guessList: [Character] = []
     var allGuesses : String = ""
     var wordLengthList: [String] = []
-    var lengthWord : Int = 4 //from settings
+    
     var p = Int() //points for guessing wrong or right letter
     var point = 0
     var timesguesses = 7 //from setting
@@ -60,7 +66,8 @@ public class Gameplay {
                 newWord.insert(guess, atIndex: index)
                 
                 if (newWord == hangWord){
-                    print("you win")
+                    //print("you win")//remove
+                    win = true
                 }
                 
             }
@@ -77,6 +84,23 @@ public class Gameplay {
     func points()->Int {
         point = point + p
         return point
+    }
+    
+    func highscore() {
+        highScoreList = [0,0,0,0,0,0,0,0,0,0]
+        //let punt = 0
+        for i in highScoreList.sort() {
+            self.highScoreList = highScoreList.sort()
+            let index = highScoreList.startIndex.advancedBy(i)
+            if point > i {
+                highScoreList.removeAtIndex(index)
+                highScoreList.insert(point, atIndex: index)
+                break
+            }
+            else{
+                break
+            }
+        }
     }
     
     }

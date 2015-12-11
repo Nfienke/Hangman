@@ -16,14 +16,14 @@ public class Words {
     
     public func loadInstanceWords() {
         if (self.words == nil) {
-            self.words = loadText("small")
+            self.words = loadText("words")
         }
     }
     
     private func loadText(filename: String) -> Array<String>? {
         do{
             let filePath = NSBundle.mainBundle().pathForResource(filename, ofType: "plist")
-            return NSArray(contentsOfFile: filePath!) as! [String]
+            return NSArray(contentsOfFile: filePath!) as? [String]
         }
             
         catch{
