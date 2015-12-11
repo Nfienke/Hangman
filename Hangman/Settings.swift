@@ -45,7 +45,14 @@ class Settings: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<< Updated upstream
          sliderValueLetters.maximumValue = 13 //max length word
+=======
+       // labelGameType.text = SettingsManager.gametype()
+        
+
+       // User = labelUsername.text!
+>>>>>>> Stashed changes
         
 //        if NSUserDefaults.standardUserDefaults().objectForKey("User") != nil{
 //            User =  NSUserDefaults.standardUserDefaults().objectForKey("User")! as! String
