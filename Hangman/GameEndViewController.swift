@@ -9,22 +9,14 @@
 import Foundation
 import UIKit
 
-class GameEndViewController: UIViewController{
+class GameEndViewController: UIViewController {
 
     var outcome = ""
     @IBOutlet weak var labelGameOutcome: UILabel!
     
-    
-
-
-
     override func viewDidLoad() {
         super.viewDidLoad()
         labelGameOutcome.text = outcome
         
     }
-
-
-
-
 }

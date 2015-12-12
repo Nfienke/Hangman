@@ -17,7 +17,7 @@ public class Evilplay: Gameplay {
         guess = tekstField.characters.first!
         var evilDict = Dictionary <String, [String]>()
         
-        for word in wordLengthList {
+        for word in wordLengthList{
             var hWord = ""
             var key = ""
             
@@ -25,18 +25,18 @@ public class Evilplay: Gameplay {
                 hWord += "_"
             }
             
-            if (word.characters.contains(guess)) {
-                for i in 0...hWord.characters.count - 1 {
+            if (word.characters.contains(guess)){
+                for i in 0...hWord.characters.count - 1{
                     let index = hWord.startIndex.advancedBy(i)
                     
-                    if (word[index] == guess) {
+                    if (word[index] == guess){
                         hWord.removeAtIndex(index)
                         hWord.insert(guess, atIndex: index)
                     }
                 }
                 
                 key = hWord
-                if evilDict[key] == nil {
+                if evilDict[key] == nil{
                     evilDict[key] = []
                 }
                 
@@ -52,7 +52,7 @@ public class Evilplay: Gameplay {
             // if guess is not in word
             else{
                 key = hWord
-                if evilDict[key] == nil {
+                if evilDict[key] == nil{
                     evilDict[key] = []
                 }
                 
@@ -66,37 +66,30 @@ public class Evilplay: Gameplay {
             }
         }
     
-    
         //choses the key with the most values.
         var biggestDict = Dictionary <String, [String]>()
         var biggest = [String]()
 
         for (k,v) in evilDict{
-            
             if v.count > biggestDict.values.first?.count {
-                
                 biggestDict = [k:v]
                 biggest = v
                 newWord = k
             }
         }
+        
         wordLengthList = biggest
         randomWord()
         print(newWord) //comment out
-       
-    
     }
     
     override func checkGuess(tekstField: String) -> Bool {
-        
         if tekstField == ""{
             print("foutje: er is geen letter ingevoerd")
             return false
-            
         }
         
         guess = tekstField.characters.first!
-        
         if newWord.containsString(String(guess)){
             p += 10
             return true
@@ -108,10 +101,8 @@ public class Evilplay: Gameplay {
             if timesguesses == 0{
                 print("you lose")
             }
-
+            
             return false
         }
-        
-        
     }
 }

@@ -7,15 +7,11 @@
 //
 
 import Foundation
-    var lengthWord : Int = 4 //from settings
-    var username = String()//?
+    var lengthWord = Int() //from settings
     var User = String()//from settings
-
 
 public class Gameplay {
     var highList = [String]()
-    var highScoreList = [Int]()
-   // var highScoreDict = Dictionary <String, Int> ()
     var win = false
     var hangWord = ""
     var randIndex : Int = 0
@@ -23,14 +19,13 @@ public class Gameplay {
     var guessList: [Character] = []
     var allGuesses : String = ""
     var wordLengthList: [String] = []
-    
     var p = Int() //points for guessing wrong or right letter
     var point = 0
-    var timesguesses = 7 //from setting
+    var timesguesses = Int()
     
-    
+  
     func lengthOfWord() {
-        var dictWords : Dictionary <String, Int> = [:]
+        var dictWords : Dictionary <String, Int> = [User: point]
         
         for word in Words.sharedInstance.words!{
             dictWords[word] = word.characters.count
@@ -69,10 +64,8 @@ public class Gameplay {
                 newWord.insert(guess, atIndex: index)
                 
                 if (newWord == hangWord){
-                    //print("you win")//remove
                     win = true
                 }
-                
             }
         }
         
@@ -90,18 +83,19 @@ public class Gameplay {
     }
     
     func highscore() {
-        
-        if NSUserDefaults.standardUserDefaults().objectForKey("highScore") != nil{
-            highList = NSUserDefaults.standardUserDefaults().objectForKey("highScore") as! [String]
+        highList.append("\(User) \(point) points \(timesguesses) guesses left \(hangWord)")
+        NSUserDefaults.standardUserDefaults().setObject(highList, forKey: "highScore")
+        NSUserDefaults.standardUserDefaults().synchronize()
+    }
+    
+    func timeguessed()  {
+    
+        if NSUserDefaults.standardUserDefaults().objectForKey("timesguesses") != nil{
+            timesguesses = NSUserDefaults.standardUserDefaults().objectForKey("timesguesses") as! Int
         }
+            
         else{
-            highList = ["\(0) Unknown","\(0) Unknown","\(0) Unknown","\(0) Unknown","\(0) Unknown",]
-        }
-        
-        if NSUserDefaults.standardUserDefaults().objectForKey("highScoreList") != nil{
-            highScoreList = NSUserDefaults.standardUserDefaults().objectForKey("highScoreList") as! [Int]
-        }
-        else{
+<<<<<<< Updated upstream
             highScoreList = [0,0,0,0,0]
         }
 
@@ -120,11 +114,9 @@ public class Gameplay {
             else{
                 break
             }
+=======
+            timesguesses = 7
+>>>>>>> Stashed changes
         }
-        print(highScoreList)
-        print(highList)
-        NSUserDefaults.standardUserDefaults().setObject(highScoreList, forKey: "highScoreList")
-        NSUserDefaults.standardUserDefaults().setObject(highList, forKey: "highScore")
-        NSUserDefaults.standardUserDefaults().synchronize()
     }
 }

@@ -148,11 +148,11 @@
 			children = (
 				324A48251BF9311A00E4EA07 /* LaunchScreen.storyboard */,
 				324A48201BF9311A00E4EA07 /* Main.storyboard */,
-				324A481E1BF9311A00E4EA07 /* ViewController.swift */,
 				328C4BEA1BFD112C00715660 /* GameplayViewcontroller.swift */,
 				32BF27971C0B91CD0097BC05 /* Settings.swift */,
 				3292F26F1C1AD02F006EBCE9 /* Highscore.swift */,
 				328CD7621C1764390039316F /* GameEndViewController.swift */,
+				324A481E1BF9311A00E4EA07 /* ViewController.swift */,
 			);
 			name = "Views and controllers";
 			sourceTree = "<group>";

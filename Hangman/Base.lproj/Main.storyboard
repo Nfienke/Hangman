@@ -86,6 +86,18 @@
                                                     <action selector="sliderNumLetters:" destination="wlM-9V-g6y" eventType="valueChanged" id="qkn-XL-yWB"/>
                                                 </connections>
                                             </slider>
+                                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="1" maxValue="27" translatesAutoresizingMaskIntoConstraints="NO" id="gw0-gQ-aNZ">
+                                                <rect key="frame" x="6" y="381" width="118" height="31"/>
+                                                <connections>
+                                                    <action selector="sliderNumGuesses:" destination="wlM-9V-g6y" eventType="valueChanged" id="zWY-og-GEd"/>
+                                                </connections>
+                                            </slider>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number of guesses: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DYx-cZ-FYg">
+                                                <rect key="frame" x="8" y="345" width="272" height="28"/>
+                                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="23"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     </view>
@@ -110,8 +122,10 @@
                     </view>
                     <connections>
                         <outlet property="labelGameType" destination="cYk-ru-uEs" id="PqA-Vo-CgA"/>
+                        <outlet property="labelNumGuesses" destination="DYx-cZ-FYg" id="3S3-cS-7q5"/>
                         <outlet property="labelNumletters" destination="wWX-VS-ruQ" id="WYC-fc-pVl"/>
                         <outlet property="labelUsername" destination="Vx8-cd-OXk" id="SoP-hO-jcl"/>
+                        <outlet property="sliderValueGuesses" destination="gw0-gQ-aNZ" id="cHU-NH-FNg"/>
                         <outlet property="sliderValueLetters" destination="4Pz-3G-esV" id="VLU-xv-Wgg"/>
                     </connections>
                 </viewController>

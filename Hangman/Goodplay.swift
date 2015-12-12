@@ -14,11 +14,10 @@ public class Goodplay : Gameplay {
         if tekstField == ""{
             print("foutje: er is geen letter ingevoerd")
             return false
-        
         }
+        
         guess = tekstField.characters.first!
         guessList += [guess]
-        
         if hangWord.characters.contains(guess){
             p += 5
             return true
@@ -27,7 +26,6 @@ public class Goodplay : Gameplay {
         else {
             p += -1
             timesguesses += -1
-            //timesfsfsd
             return false
         }
     }
